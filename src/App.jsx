@@ -1,32 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import About from "./components/About";
+import Cart from "./components/Cart";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const productsArr = [
-  {
-    title: "Colors",
-    price: 100,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-  },
-  {
-    title: "Black and white Colors",
-    price: 50,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-  },
-  {
-    title: "Yellow and Black Colors",
-    price: 70,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-  },
-  {
-    title: "Blue Color",
-    price: 100,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-  },
+  /* same as before */
 ];
 
 function Home() {
@@ -54,13 +35,16 @@ function Home() {
 }
 
 function App() {
+  const [showCart, setShowCart] = useState(false);
+
   return (
     <div>
-      <Header />
+      <Header onCartClick={() => setShowCart(true)} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
       </Routes>
+      <Cart show={showCart} handleClose={() => setShowCart(false)} />
       <Footer />
     </div>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Nav, Container, Button, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ onCartClick }) => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
@@ -20,10 +20,10 @@ const Header = () => {
               About
             </Nav.Link>
           </Nav>
-          <Button variant="outline-light">
+          <Button variant="outline-light" onClick={onCartClick}>
             Cart{" "}
             <Badge bg="light" text="dark">
-              0
+              3
             </Badge>
           </Button>
         </Navbar.Collapse>
