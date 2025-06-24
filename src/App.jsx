@@ -8,6 +8,7 @@ import Products from "./components/Products";
 import ContactUs from "./components/ContactUs.";
 import { CartContext } from "./CartContext";
 import { Routes, Route } from "react-router-dom";
+import ProductDetail from "./components/ProductDetail";
 
 function App() {
   const [showCart, setShowCart] = useState(false);
@@ -22,6 +23,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/about" element={<About />} />
         <Route path="/contactUs" element={<ContactUs />} />
+        <Route path="/products/:productId" element={<ProductDetail />} />
       </Routes>
 
       <Cart show={showCart} handleClose={() => setShowCart(false)} />
