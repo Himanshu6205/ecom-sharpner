@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar, Nav, Container, Button, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { CartContext } from "../CartContext";
 
 const Header = ({ onCartClick }) => {
+  const { cartItems } = useContext(CartContext);
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
@@ -15,7 +19,9 @@ const Header = ({ onCartClick }) => {
             <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
-            <Nav.Link href="#products">Products</Nav.Link>
+            <Nav.Link as={Link} to="/products">
+              Products
+            </Nav.Link>
             <Nav.Link as={Link} to="/about">
               About
             </Nav.Link>
@@ -23,7 +29,7 @@ const Header = ({ onCartClick }) => {
           <Button variant="outline-light" onClick={onCartClick}>
             Cart{" "}
             <Badge bg="light" text="dark">
-              3
+              {totalItems}
             </Badge>
           </Button>
         </Navbar.Collapse>
