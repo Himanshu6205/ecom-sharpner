@@ -25,6 +25,9 @@ const Header = ({ onCartClick }) => {
             <Nav.Link as={Link} to="/about">
               About
             </Nav.Link>
+            <Nav.Link as={Link} to="/ContactUs">
+              Contact Us
+            </Nav.Link>
           </Nav>
           <Button variant="outline-light" onClick={onCartClick}>
             Cart{" "}
